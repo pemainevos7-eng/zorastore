@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ZORA UID</title>
+<meta name="google-site-verification" content="KLkTmenkX53LkZdqXlIQ_talkV02UjuT-LSnx3G-5Zk" />
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+*{box-sizing:border-box;margin:0;padding:0}
+
+body{
+font-family:Inter,Arial,sans-serif;
+min-height:100vh;
+background:
+radial-gradient(circle at 50% -10%,rgba(168,85,247,.25),transparent 35%),
+#060609;
+color:#fff;
+overflow-x:hidden;
+}
+
+body:before{
+content:"";
+position:fixed;
+inset:0;
+background-image:
+linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),
+linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
+background-size:45px 45px;
+mask-image:linear-gradient(to bottom,#000,transparent);
+pointer-events:none;
+}
+
+.glow{
+position:fixed;
+width:300px;
+height:300px;
+border-radius:50%;
+background:#a855f7;
+filter:blur(130px);
+opacity:.14;
+top:5%;
+left:50%;
+transform:translateX(-50%);
+animation:pulse 5s ease-in-out infinite;
+pointer-events:none;
+}
+
+@keyframes pulse{
+0%,100%{transform:translateX(-50%) scale(1);opacity:.12}
+50%{transform:translateX(-50%) scale(1.25);opacity:.22}
+}
+
+header{
+position:relative;
+z-index:2;
+padding:20px 6%;
+display:flex;
+align-items:center;
+justify-content:space-between;
+border-bottom:1px solid rgba(255,255,255,.06);
+background:rgba(6,6,9,.7);
+backdrop-filter:blur(18px);
+}
+
+.brand{
+display:flex;
+align-items:center;
+gap:12px;
+}
+
+.logo{
+width:44px;
+height:44px;
+border-radius:14px;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:19px;
+font-weight:900;
+background:linear-gradient(135deg,#a855f7,#7c3aed);
+box-shadow:0 0 25px rgba(168,85,247,.3);
+}
+
+.brand h1{
+font-size:17px;
+font-weight:800;
+}
+
+.brand p{
+font-size:9px;
+color:#666;
+margin-top:3px;
+}
+
+.admin{
+color:#aaa;
+text-decoration:none;
+font-size:11px;
+border:1px solid rgba(255,255,255,.08);
+padding:9px 13px;
+border-radius:10px;
+}
+
+.hero{
+position:relative;
+z-index:1;
+text-align:center;
+padding:70px 20px 45px;
+}
+
+.badge{
+display:inline-flex;
+align-items:center;
+gap:8px;
+padding:8px 13px;
+border:1px solid rgba(168,85,247,.25);
+background:rgba(168,85,247,.07);
+border-radius:999px;
+color:#c084fc;
+font-size:10px;
+font-weight:700;
+margin-bottom:20px;
+}
+
+.dot{
+width:7px;
+height:7px;
+border-radius:50%;
+background:#a855f7;
+box-shadow:0 0 12px #a855f7;
+animation:blink 1.5s infinite;
+}
+
+@keyframes blink{50%{opacity:.25}}
+
+.hero h2{
+font-size:clamp(38px,8vw,66px);
+letter-spacing:-3px;
+line-height:1;
+font-weight:800;
+background:linear-gradient(90deg,#fff,#d8b4fe,#fff);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+.hero p{
+max-width:530px;
+margin:20px auto 0;
+color:#858592;
+font-size:13px;
+line-height:1.8;
+}
+
+.container{
+position:relative;
+z-index:1;
+width:min(1000px,92%);
+margin:auto;
+padding-bottom:50px;
+}
+
+.section-title{
+font-size:11px;
+color:#666;
+letter-spacing:1px;
+margin:15px 0;
+}
+
+.products{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(270px,1fr));
+gap:15px;
+}
+
+.card{
+position:relative;
+overflow:hidden;
+background:rgba(17,17,27,.72);
+border:1px solid rgba(255,255,255,.07);
+border-radius:20px;
+padding:20px;
+backdrop-filter:blur(18px);
+transition:.3s;
+}
+
+.card:before{
+content:"";
+position:absolute;
+width:120px;
+height:120px;
+background:#a855f7;
+filter:blur(80px);
+opacity:.06;
+right:-50px;
+top:-50px;
+}
+
+.card:hover{
+transform:translateY(-5px);
+border-color:rgba(168,85,247,.35);
+box-shadow:0 20px 60px rgba(0,0,0,.3);
+}
+
+.id{
+font-weight:800;
+font-size:18px;
+}
+
+.price{
+color:#c084fc;
+font-size:22px;
+font-weight:800;
+margin:13px 0;
+}
+
+.note{
+font-size:11px;
+line-height:1.6;
+color:#777;
+}
+
+.status{
+margin:15px 0;
+font-size:10px;
+font-weight:800;
+}
+
+.available{color:#22c55e}
+.sold{color:#ef4444}
+
+.buy{
+width:100%;
+border:0;
+padding:13px;
+border-radius:12px;
+background:linear-gradient(135deg,#a855f7,#7c3aed);
+color:#fff;
+font-weight:800;
+cursor:pointer;
+transition:.25s;
+}
+
+.buy:hover{
+transform:translateY(-2px);
+box-shadow:0 10px 30px rgba(168,85,247,.25);
+}
+
+.buy:disabled{
+background:#292932;
+color:#666;
+cursor:not-allowed;
+box-shadow:none;
+}
+
+.empty{
+text-align:center;
+padding:50px;
+color:#666;
+border:1px dashed #29293a;
+border-radius:20px;
+}
+
+footer{
+text-align:center;
+padding:30px;
+color:#444;
+font-size:10px;
+}
+
+@media(max-width:600px){
+header{padding:17px 5%}
+.hero{padding:55px 15px 35px}
+.admin{display:none}
+}
+</style>
+</head>
+
+<body>
+
+<div class="glow"></div>
+
+<header>
+
+<div class="brand">
+
+<div class="logo">Z</div>
+
+<div>
+<h1>ZORA UID</h1>
+<p>FREE FIRE UID RAPI</p>
+</div>
+
+</div>
+
+<a class="admin" href="admin.html">ADMIN</a>
+
+</header>
+
+
+<section class="hero">
+
+<div class="badge">
+<span class="dot"></span>
+MARKETPLACE UID FREE FIRE
+</div>
+
+<h2>
+TEMPATNYA<br>
+ID FREE FIRE RAPI.
+</h2>
+
+<p>
+Pilih akun Free Fire yang tersedia,
+lakukan pembayaran melalui QRIS,
+dan lanjutkan proses dengan admin.
+</p>
+
+</section>
+
+
+<main class="container">
+
+<div class="section-title">
+AKUN TERSEDIA
+</div>
+
+<div id="products" class="products">
+
+<div class="empty">
+Memuat akun...
+</div>
+
+</div>
+
+</main>
+
+
+<footer>
+© 2026 ZORA UID Allright reserved.
+</footer>
+
+
+<script type="module">
+
+import{initializeApp}
+from"https://www.gstatic.com/firebasejs/12.17.1/firebase-app.js";
+
+import{
+getFirestore,
+collection,
+onSnapshot,
+doc,
+getDoc
+}
+from"https://www.gstatic.com/firebasejs/12.17.1/firebase-firestore.js";
+
+
+const firebaseConfig={
+
+apiKey:"AIzaSyBCLXYcMh6heeDchgEJwwfhOYGTPRFQnuI",
+authDomain:"jual-id-ff.firebaseapp.com",
+projectId:"jual-id-ff",
+storageBucket:"jual-id-ff.firebasestorage.app",
+messagingSenderId:"891327932016",
+appId:"1:891327932016:web:1c45136d58d71a6ee6b6b5",
+measurementId:"G-RB9T4EEZN2"
+
+};
+
+
+const app=initializeApp(firebaseConfig);
+
+const db=getFirestore(app);
+
+
+/* MAINTENANCE */
+
+const maintenance=
+await getDoc(
+doc(db,"settings","maintenance")
+);
+
+if(
+maintenance.exists() &&
+maintenance.data().enabled===true
+){
+
+location.replace("maintenance.html");
+
+}
+
+
+/* ESCAPE */
+
+function esc(value){
+
+return String(value??"")
+.replace(/[&<>"']/g,m=>({
+
+"&":"&amp;",
+"<":"&lt;",
+">":"&gt;",
+'"':"&quot;",
+"'":"&#039;"
+
+}[m]));
+
+}
+
+
+/* PRODUCTS */
+
+onSnapshot(
+collection(db,"products"),
+snapshot=>{
+
+const box=
+document.getElementById("products");
+
+box.innerHTML="";
+
+
+if(snapshot.empty){
+
+box.innerHTML=
+`
+<div class="empty">
+Belum ada akun tersedia.
+</div>
+`;
+
+return;
+
+}
+
+
+snapshot.forEach(item=>{
+
+const data=item.data();
+
+const sold=
+data.status==="SOLD";
+
+
+const card=
+document.createElement("div");
+
+card.className="card";
+
+
+card.innerHTML=`
+
+<div class="id">
+ID : ${esc(data.id)}
+</div>
+
+<div class="price">
+Rp ${Number(data.price||0)
+.toLocaleString("id-ID")}
+</div>
+
+<div class="note">
+NOTE : ${esc(
+data.note||
+"EMAIL DARI LU, EMAIL DARI GW +3K"
+)}
+</div>
+
+<div class="status ${
+sold?"sold":"available"
+}">
+● ${sold?"SOLD":"TERSEDIA"}
+</div>
+
+<button
+class="buy"
+${sold?"disabled":""}>
+
+${sold?"SOLD":"BELI + BAYAR"}
+
+</button>
+
+`;
+
+
+if(!sold){
+
+card.querySelector(".buy")
+.onclick=()=>{
+
+location.href=
+"payment.html?product="+
+encodeURIComponent(item.id);
+
+};
+
+}
+
+
+box.appendChild(card);
+
+});
+
+});
+
+</script>
+
+</body>
+</html>

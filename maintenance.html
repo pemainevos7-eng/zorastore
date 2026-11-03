@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<title>ZORA FF MARKET — Maintenance</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+*{
+box-sizing:border-box;
+margin:0;
+padding:0;
+}
+
+body{
+min-height:100vh;
+font-family:Inter,Arial,sans-serif;
+background:
+radial-gradient(circle at 50% -10%,rgba(168,85,247,.25),transparent 35%),
+#060609;
+color:#fff;
+display:flex;
+align-items:center;
+justify-content:center;
+overflow:hidden;
+}
+
+body:before{
+content:"";
+position:fixed;
+inset:0;
+background-image:
+linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),
+linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
+background-size:45px 45px;
+mask-image:linear-gradient(to bottom,#000,transparent);
+pointer-events:none;
+}
+
+.glow{
+position:fixed;
+width:280px;
+height:280px;
+border-radius:50%;
+background:#a855f7;
+filter:blur(120px);
+opacity:.15;
+top:20%;
+left:50%;
+transform:translateX(-50%);
+animation:pulse 4s ease-in-out infinite;
+}
+
+@keyframes pulse{
+0%,100%{transform:translateX(-50%) scale(1);opacity:.12}
+50%{transform:translateX(-50%) scale(1.25);opacity:.22}
+}
+
+.container{
+position:relative;
+z-index:2;
+width:min(92%,520px);
+text-align:center;
+}
+
+.logo{
+width:72px;
+height:72px;
+margin:0 auto 24px;
+border-radius:22px;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:29px;
+font-weight:800;
+background:linear-gradient(135deg,#a855f7,#7c3aed);
+box-shadow:
+0 0 35px rgba(168,85,247,.35),
+inset 0 1px rgba(255,255,255,.25);
+animation:float 3s ease-in-out infinite;
+}
+
+@keyframes float{
+0%,100%{transform:translateY(0)}
+50%{transform:translateY(-7px)}
+}
+
+.badge{
+display:inline-flex;
+align-items:center;
+gap:8px;
+padding:8px 13px;
+border:1px solid rgba(168,85,247,.25);
+background:rgba(168,85,247,.08);
+border-radius:999px;
+color:#c084fc;
+font-size:12px;
+font-weight:700;
+letter-spacing:.7px;
+margin-bottom:18px;
+}
+
+.dot{
+width:7px;
+height:7px;
+border-radius:50%;
+background:#a855f7;
+box-shadow:0 0 12px #a855f7;
+animation:blink 1.4s infinite;
+}
+
+@keyframes blink{
+0%,100%{opacity:1}
+50%{opacity:.3}
+}
+
+h1{
+font-size:clamp(34px,9vw,52px);
+line-height:1.05;
+font-weight:800;
+letter-spacing:-2px;
+margin-bottom:17px;
+background:linear-gradient(90deg,#fff,#d8b4fe,#fff);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+.description{
+color:#8d8d9b;
+font-size:14px;
+line-height:1.8;
+max-width:410px;
+margin:0 auto;
+}
+
+.card{
+margin-top:30px;
+padding:20px;
+border:1px solid rgba(255,255,255,.08);
+background:rgba(17,17,27,.72);
+backdrop-filter:blur(20px);
+-webkit-backdrop-filter:blur(20px);
+border-radius:20px;
+box-shadow:
+0 20px 70px rgba(0,0,0,.35),
+inset 0 1px rgba(255,255,255,.04);
+}
+
+.progress{
+height:5px;
+background:#24242f;
+border-radius:99px;
+overflow:hidden;
+margin-bottom:14px;
+}
+
+.progress span{
+display:block;
+height:100%;
+width:65%;
+border-radius:99px;
+background:linear-gradient(90deg,#7c3aed,#c084fc);
+box-shadow:0 0 15px rgba(168,85,247,.7);
+animation:loading 2.5s ease-in-out infinite;
+}
+
+@keyframes loading{
+0%{width:15%}
+50%{width:78%}
+100%{width:15%}
+}
+
+.card-text{
+display:flex;
+justify-content:space-between;
+font-size:11px;
+color:#666674;
+}
+
+.status{
+color:#b47aff;
+}
+
+.footer{
+margin-top:25px;
+color:#4f4f5b;
+font-size:11px;
+}
+
+@media(max-width:450px){
+.card{margin-top:25px}
+h1{letter-spacing:-1.5px}
+}
+</style>
+</head>
+
+<body>
+
+<div class="glow"></div>
+
+<main class="container">
+
+<div class="logo">Z</div>
+
+<div class="badge">
+<span class="dot"></span>
+SISTEM MAINTENANCE
+</div>
+
+<h1>
+WEB DALAM PERBAIKAN<br>
+</h1>
+
+<p class="description">
+ZORA UID sedang melakukan peningkatan
+sistem agar pengalaman jual beli akun menjadi
+lebih cepat, aman, dan nyaman.
+</p>
+
+<div class="card">
+
+<div class="progress">
+<span></span>
+</div>
+
+<div class="card-text">
+<span>MAINTENANCE</span>
+<span class="status">IN PROGRESS</span>
+</div>
+
+</div>
+
+<div class="footer">
+© 2026 ZORA UID • All systems secured
+</div>
+
+</main>
+
+</body>
+</html>
